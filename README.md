@@ -13,7 +13,6 @@ This was developed as a **Mini Project** using Python, Flask, OpenCV, and Tesser
 
 ## 🛠️ Technologies
 - Python, Flask  
-- OpenCV  
 - Tesseract OCR  
 - Pillow  
 - PyPDF2  
