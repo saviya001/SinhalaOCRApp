@@ -7,5 +7,16 @@
     <h1>OCR Result</h1>
     <pre>{{ text }}</pre>
     <a href="{{ url_for('index') }}">Upload Another PDF</a>
+    <h2>OCR Result</h2>
+<textarea rows="20" cols="80">{{ text }}</textarea>
+
+<form method="POST" action="/download_docx">
+    <button type="submit">Download as DOCX</button>
+</form>
+
+<form method="POST" action="/download_pdf">
+    <button type="submit">Download as PDF</button>
+</form>
+
 </body>
 </html>
