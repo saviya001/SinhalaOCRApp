@@ -9,17 +9,17 @@ from reportlab.lib.pagesizes import A4
 
 app = Flask(__name__)
 
-# ඔබේ Tesseract exe path එක මෙහෙ දාන්න:
+
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-# ඔබේ poppler bin folder එක මෙහෙ දාන්න:
+
 poppler_path = r'C:\Users\SAVINDU\Desktop\Release-24.08.0-0\poppler-24.08.0\Library\bin'
 
 UPLOAD_FOLDER = 'uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
-# Global variable to keep OCR result
+#  OCR result
 ocr_result = ""
 
 @app.route('/', methods=['GET', 'POST'])
@@ -35,7 +35,7 @@ def index():
             filepath = os.path.join(UPLOAD_FOLDER, file.filename)
             file.save(filepath)
 
-            # PDF → images
+          
             pages = pdf2image.convert_from_path(filepath, dpi=300, poppler_path=poppler_path)
             text = ''
             for page in pages:
@@ -45,7 +45,7 @@ def index():
             return render_template('result.html', text=text)
     return render_template('index.html')
 
-# -------- DOCX Export --------
+
 @app.route('/download_docx', methods=['POST'])
 def download_docx():
     global ocr_result
@@ -60,7 +60,7 @@ def download_docx():
                      download_name="ocr_result.docx",
                      mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
 
-# -------- PDF Export --------
+
 @app.route('/download_pdf', methods=['POST'])
 def download_pdf():
     global ocr_result
