@@ -19,7 +19,7 @@ UPLOAD_FOLDER = 'uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
-#  OCR result
+
 ocr_result = ""
 
 @app.route('/', methods=['GET', 'POST'])
@@ -73,7 +73,7 @@ def download_pdf():
     for line in ocr_result.splitlines():
         c.drawString(100, y, line)
         y -= 20
-        if y < 50:  # new page if space ends
+        if y < 50: 
             c.showPage()
             c.setFont("Helvetica", 12)
             y = 800
