@@ -13,7 +13,7 @@ app = Flask(__name__)
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 
-poppler_path = r'C:\Users\SAVINDU\Desktop\Release-24.08.0-0\poppler-24.08.0\Library\bin'
+poppler_path = r'C:\Users\SAVINDU\Desktop\Release-24.08.0-0\poppler-24.08.0\Library\bin'  // my //
 
 UPLOAD_FOLDER = 'uploads'
 if not os.path.exists(UPLOAD_FOLDER):
